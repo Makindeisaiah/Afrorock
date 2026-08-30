@@ -1,0 +1,6 @@
+{
+  "name": "Afrorock",
+  "description": "Premium African print fashion e-commerce brand featuring African cultural couture, authentic heritage prints, and modern tailoring.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
