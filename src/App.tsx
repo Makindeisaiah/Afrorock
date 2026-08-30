@@ -11,6 +11,7 @@ import {
   Headphones,
   Check,
   HelpCircle,
+  Star,
 } from 'lucide-react';
 import heroLeft from './assets/hero-left.jpg';
 import heroCenter from './assets/hero-center.jpg';
@@ -19,6 +20,14 @@ import category1 from './assets/category-1.jpg';
 import category2 from './assets/category-2.jpg';
 import category3 from './assets/category-3.jpg';
 import category4 from './assets/category-4.jpg';
+import product1 from './assets/product-1.jpg';
+import product2 from './assets/product-2.jpg';
+import product3 from './assets/product-3.jpg';
+import product4 from './assets/product-4.jpg';
+import product5 from './assets/product-5.jpg';
+import product6 from './assets/product-6.jpg';
+import product7 from './assets/product-7.jpg';
+import product8 from './assets/product-8.jpg';
 
 export default function App() {
   const [activeNav, setActiveNav] = useState('HOME');
@@ -480,6 +489,108 @@ export default function App() {
                   </span>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ================= PRODUCT SECTION (PHASE 3) ================= */}
+        <section
+          id="product-section"
+          className="w-full pt-10 sm:pt-14 md:pt-16 pb-20 sm:pb-24 md:pb-28 px-4 sm:px-6 md:px-8 lg:px-12"
+        >
+          <div className="max-w-7xl mx-auto">
+            {/* Section Heading */}
+            <h2
+              id="product-heading"
+              className="text-3xl sm:text-4xl md:text-[40px] font-bold text-black text-center tracking-tight mb-10 sm:mb-12 md:mb-14"
+            >
+              Product
+            </h2>
+
+            {/* 8 Product Cards Grid (4 cols desktop, 2 cols tablet, 1 col mobile) */}
+            <div
+              id="product-grid"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10 sm:gap-y-12"
+            >
+              {[
+                { id: 1, img: product1, name: 'African Print Crop Top', price: '$100' },
+                { id: 2, img: product2, name: 'African Print Crop Top', price: '$100' },
+                { id: 3, img: product3, name: 'African Print Crop Top', price: '$100' },
+                { id: 4, img: product4, name: 'African Print Crop Top', price: '$100' },
+                { id: 5, img: product5, name: 'African Print Crop Top', price: '$100' },
+                { id: 6, img: product6, name: 'African Print Crop Top', price: '$100' },
+                { id: 7, img: product7, name: 'African Print Crop Top', price: '$100' },
+                { id: 8, img: product8, name: 'African Print Crop Top', price: '$100' },
+              ].map((prod) => (
+                <div
+                  key={prod.id}
+                  id={`product-card-${prod.id}`}
+                  className="flex flex-col items-center group"
+                >
+                  {/* Portrait Product Photo with rounded corners */}
+                  <div className="w-full aspect-[3/4] overflow-hidden rounded-xl bg-neutral-100 mb-4 shadow-sm">
+                    <img
+                      id={`product-img-${prod.id}`}
+                      src={prod.img}
+                      alt={prod.name}
+                      className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+
+                  {/* Centered Text Stack */}
+                  <div className="flex flex-col items-center text-center space-y-2 w-full">
+                    {/* Product Name */}
+                    <h3
+                      id={`product-name-${prod.id}`}
+                      className="text-base sm:text-lg font-bold text-black tracking-tight"
+                    >
+                      {prod.name}
+                    </h3>
+
+                    {/* 5 Filled Gold/Yellow Star Rating */}
+                    <div
+                      id={`product-rating-${prod.id}`}
+                      className="flex items-center justify-center space-x-1"
+                      aria-label="5 out of 5 stars"
+                    >
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="w-4 h-4 fill-amber-400 text-amber-400"
+                        />
+                      ))}
+                    </div>
+
+                    {/* Price */}
+                    <p
+                      id={`product-price-${prod.id}`}
+                      className="text-lg sm:text-xl font-bold text-black"
+                    >
+                      {prod.price}
+                    </p>
+
+                    {/* Add To Cart Button */}
+                    <button
+                      id={`product-add-to-cart-${prod.id}`}
+                      onClick={() => setCartCount((prev) => prev + 1)}
+                      className="mt-1 w-full max-w-[170px] py-2.5 px-5 bg-black text-white text-sm font-semibold rounded-md sm:rounded-lg hover:bg-neutral-800 active:scale-95 transition-all shadow-sm cursor-pointer"
+                    >
+                      Add To Cart
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* View All Button */}
+            <div className="flex justify-center mt-12 sm:mt-14 md:mt-16">
+              <button
+                id="view-all-products-btn"
+                className="px-10 py-3 border-2 border-black bg-white text-black text-sm sm:text-base font-semibold hover:bg-black hover:text-white transition-colors duration-200 cursor-pointer shadow-sm"
+              >
+                View All
+              </button>
             </div>
           </div>
         </section>
