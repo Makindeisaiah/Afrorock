@@ -28,12 +28,18 @@ import product5 from './assets/product-5.jpg';
 import product6 from './assets/product-6.jpg';
 import product7 from './assets/product-7.jpg';
 import product8 from './assets/product-8.jpg';
+import aboutPhoto from './assets/about-photo.jpg';
+import avatar1 from './assets/avatar-1.jpg';
+import avatar2 from './assets/avatar-2.jpg';
+import avatar3 from './assets/avatar-3.jpg';
 
 export default function App() {
   const [activeNav, setActiveNav] = useState('HOME');
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [cartCount, setCartCount] = useState(0);
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
 
   // Afrorock logo letters with pastel gradient colors matching the brand identity
   const logoLetters = [
@@ -594,6 +600,583 @@ export default function App() {
             </div>
           </div>
         </section>
+
+        {/* ================= ABOUT US SECTION (PHASE 4) ================= */}
+        <section
+          id="about-us-section"
+          className="w-full pt-10 sm:pt-14 md:pt-16 pb-16 sm:pb-20 md:pb-24 px-4 sm:px-6 md:px-8 lg:px-12 bg-white"
+        >
+          <div className="max-w-7xl mx-auto">
+            {/* Section Heading */}
+            <h2
+              id="about-us-heading"
+              className="text-3xl sm:text-4xl md:text-[40px] font-bold text-black text-center tracking-tight mb-10 sm:mb-12 md:mb-16"
+            >
+              About Us
+            </h2>
+
+            {/* 2-Column Responsive Layout */}
+            <div
+              id="about-us-content"
+              className="flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-12 lg:gap-16"
+            >
+              {/* Left Column: Portrait Photo (~40% desktop) */}
+              <div
+                id="about-us-image-container"
+                className="w-full lg:w-[42%] max-w-md lg:max-w-none flex-shrink-0"
+              >
+                <div className="w-full aspect-[3/4] overflow-hidden rounded-xl bg-neutral-100 shadow-md group">
+                  <img
+                    id="about-us-photo"
+                    src={aboutPhoto}
+                    alt="Afrorock model wearing emerald green and orange African print jumpsuit"
+                    className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+              </div>
+
+              {/* Right Column: Body Text Stack (~55% desktop) */}
+              <div
+                id="about-us-text-container"
+                className="w-full lg:w-[55%] flex flex-col justify-center space-y-6 sm:space-y-8 text-black"
+              >
+                <p
+                  id="about-us-paragraph-1"
+                  className="text-base sm:text-lg md:text-[19px] font-bold leading-relaxed sm:leading-loose text-neutral-900"
+                >
+                  Afrorock Clothes is a captivating online store that beautifully
+                  blends contemporary fashion with the rich heritage of African
+                  culture. Our collection features a stunning array of garments
+                  crafted from authentic African fabrics, reflecting the
+                  vibrancy and diversity of the continent.
+                </p>
+
+                <p
+                  id="about-us-paragraph-2"
+                  className="text-base sm:text-lg md:text-[19px] font-bold leading-relaxed sm:leading-loose text-neutral-900"
+                >
+                  Our mission is to not only offer stylish clothing and
+                  accessories but also to celebrate and promote African culture
+                  through every thread and design. From intricately patterned
+                  clothing to carefully curated African fabrics and accessories,
+                  Afrorock is your gateway to embracing the elegance and soul of
+                  African-inspired fashion.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ================= NEWSLETTER SECTION (PHASE 4) ================= */}
+        <section
+          id="newsletter-section"
+          className="relative w-full overflow-hidden py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 bg-[#095e6d]"
+        >
+          {/* African Wax Print Decorative Background Pattern (Teal base with orange/navy floral motifs & radiating linework) */}
+          <div className="absolute inset-0 pointer-events-none opacity-90 overflow-hidden">
+            <svg
+              className="w-full h-full object-cover min-w-[800px] min-h-[300px]"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1200 400"
+              preserveAspectRatio="xMidYMid slice"
+            >
+              <defs>
+                {/* Radial Gradient for stylized petals */}
+                <radialGradient id="tealGrad" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="#14b8a6" />
+                  <stop offset="70%" stopColor="#0d7486" />
+                  <stop offset="100%" stopColor="#08434f" />
+                </radialGradient>
+                <radialGradient id="orangeGrad" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="#ff8c38" />
+                  <stop offset="70%" stopColor="#ea580c" />
+                  <stop offset="100%" stopColor="#9a3412" />
+                </radialGradient>
+                <radialGradient id="navyGrad" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="#2e3b82" />
+                  <stop offset="70%" stopColor="#1e2356" />
+                  <stop offset="100%" stopColor="#0f122e" />
+                </radialGradient>
+              </defs>
+
+              {/* Background solid deep teal */}
+              <rect width="1200" height="400" fill="#085461" />
+
+              {/* Radiating Fan Petals - Motif 1 Left Top */}
+              <g transform="translate(100, 50)">
+                <path d="M 0,0 C -60,-80 -120,40 -40,100 C 40,160 120,80 60,0 Z" fill="url(#tealGrad)" stroke="#05272e" strokeWidth="2.5" />
+                <path d="M 0,0 L -80,-30 M 0,0 L -50,-70 M 0,0 L 20,-80 M 0,0 L 70,-40 M 0,0 L 80,20 M 0,0 L 40,80 M 0,0 L -30,80" stroke="#05272e" strokeWidth="1.5" strokeDasharray="3 3" />
+                <circle cx="-10" cy="20" r="45" fill="url(#orangeGrad)" stroke="#05272e" strokeWidth="3" />
+                <circle cx="-10" cy="20" r="18" fill="#1e2356" stroke="#ea580c" strokeWidth="2" />
+              </g>
+
+              {/* Radiating Fan Petals - Motif 2 Left Bottom */}
+              <g transform="translate(250, 360)">
+                <path d="M 0,0 C -120,-40 -100,-150 0,-140 C 100,-130 120,-30 0,0 Z" fill="url(#navyGrad)" stroke="#05272e" strokeWidth="3" />
+                <circle cx="-40" cy="-60" r="60" fill="url(#orangeGrad)" stroke="#05272e" strokeWidth="3" />
+                <circle cx="40" cy="-60" r="50" fill="url(#tealGrad)" stroke="#05272e" strokeWidth="2" />
+                <path d="M 0,-60 L -70,-100 M 0,-60 L -30,-130 M 0,-60 L 30,-130 M 0,-60 L 70,-90" stroke="#05272e" strokeWidth="2" />
+              </g>
+
+              {/* Radiating Fan Petals - Motif 3 Center Top */}
+              <g transform="translate(580, 40)">
+                <circle cx="-60" cy="40" r="70" fill="url(#orangeGrad)" stroke="#05272e" strokeWidth="3" />
+                <circle cx="60" cy="30" r="65" fill="url(#navyGrad)" stroke="#05272e" strokeWidth="3" />
+                <circle cx="0" cy="90" r="50" fill="url(#tealGrad)" stroke="#05272e" strokeWidth="2" />
+                <path d="M -60,40 L -120,0 M -60,40 L -90,-20 M 60,30 L 120,0 M 60,30 L 100,-20" stroke="#05272e" strokeWidth="1.5" />
+              </g>
+
+              {/* Radiating Fan Petals - Motif 4 Center Bottom */}
+              <g transform="translate(680, 370)">
+                <path d="M 0,0 C -80,-100 0,-180 80,-100 Z" fill="url(#tealGrad)" stroke="#05272e" strokeWidth="2" />
+                <circle cx="-30" cy="-70" r="55" fill="url(#orangeGrad)" stroke="#05272e" strokeWidth="3" />
+                <circle cx="50" cy="-60" r="50" fill="url(#navyGrad)" stroke="#05272e" strokeWidth="3" />
+              </g>
+
+              {/* Radiating Fan Petals - Motif 5 Right Top */}
+              <g transform="translate(950, 70)">
+                <circle cx="0" cy="0" r="80" fill="url(#navyGrad)" stroke="#05272e" strokeWidth="3" />
+                <circle cx="-50" cy="40" r="55" fill="url(#tealGrad)" stroke="#05272e" strokeWidth="2" />
+                <circle cx="40" cy="50" r="60" fill="url(#orangeGrad)" stroke="#05272e" strokeWidth="3" />
+                <path d="M 0,0 L -60,-60 M 0,0 L 0,-80 M 0,0 L 60,-60" stroke="#05272e" strokeWidth="2" strokeDasharray="4 3" />
+              </g>
+
+              {/* Radiating Fan Petals - Motif 6 Right Bottom */}
+              <g transform="translate(1120, 340)">
+                <circle cx="-30" cy="-50" r="80" fill="url(#orangeGrad)" stroke="#05272e" strokeWidth="3" />
+                <circle cx="40" cy="-60" r="60" fill="url(#tealGrad)" stroke="#05272e" strokeWidth="2" />
+                <circle cx="-20" cy="-120" r="45" fill="url(#navyGrad)" stroke="#05272e" strokeWidth="3" />
+              </g>
+            </svg>
+          </div>
+
+          {/* Foreground Newsletter Content */}
+          <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center text-center">
+            {/* Section Heading */}
+            <h2
+              id="newsletter-heading"
+              className="text-2xl sm:text-3xl md:text-[32px] font-bold text-white tracking-tight drop-shadow-md mb-8 sm:mb-10"
+            >
+              Subscribe To Our News Letter
+            </h2>
+
+            {/* Rounded Pill-Shaped Input Group with White Border */}
+            <form
+              id="newsletter-form"
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (newsletterEmail.trim()) {
+                  setSubscribed(true);
+                  setNewsletterEmail('');
+                  setTimeout(() => setSubscribed(false), 4000);
+                }
+              }}
+              className="w-full max-w-xl"
+            >
+              <div
+                id="newsletter-pill-container"
+                className="flex flex-col sm:flex-row items-center border-2 border-white rounded-3xl sm:rounded-full p-1.5 sm:p-2 backdrop-blur-[2px] bg-black/10 transition-all duration-300 focus-within:ring-2 focus-within:ring-white"
+              >
+                {/* Left Side: Transparent text input */}
+                <input
+                  id="newsletter-email-input"
+                  type="email"
+                  required
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
+                  placeholder="Email Address"
+                  className="w-full sm:flex-1 px-5 py-2.5 sm:py-3 bg-transparent text-white placeholder-white/80 text-sm sm:text-base focus:outline-none text-center sm:text-left"
+                />
+
+                {/* Right Side: Solid Pink/Magenta Button */}
+                <button
+                  id="newsletter-subscribe-btn"
+                  type="submit"
+                  className="w-full sm:w-auto mt-2 sm:mt-0 px-7 sm:px-9 py-2.5 sm:py-3 bg-[#b8336a] hover:bg-[#a5265a] text-white text-sm sm:text-base font-semibold rounded-full transition-all duration-200 active:scale-95 shadow-md flex items-center justify-center space-x-2 cursor-pointer flex-shrink-0"
+                >
+                  {subscribed ? (
+                    <>
+                      <Check className="w-4 h-4" />
+                      <span>Subscribed!</span>
+                    </>
+                  ) : (
+                    <span>Subscribe</span>
+                  )}
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        {/* ================= TESTIMONIALS SECTION (PHASE 5) ================= */}
+        <section
+          id="testimonials-section"
+          className="w-full pt-12 sm:pt-16 md:pt-20 pb-16 sm:pb-20 md:pb-24 px-4 sm:px-6 md:px-8 lg:px-12 bg-white"
+        >
+          <div className="max-w-7xl mx-auto">
+            {/* Section Heading */}
+            <h2
+              id="testimonials-heading"
+              className="text-3xl sm:text-4xl md:text-[40px] font-bold text-black text-center tracking-tight mb-10 sm:mb-14 md:mb-16"
+            >
+              Testimonials
+            </h2>
+
+            {/* 3-Column Testimonial Cards Grid */}
+            <div
+              id="testimonials-grid"
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"
+            >
+              {/* Card 1: Aisha Kudirat (Lilac / Soft Purple) */}
+              <div
+                id="testimonial-card-1"
+                className="flex flex-col justify-between rounded-2xl p-7 sm:p-8 md:p-9 shadow-sm transition-transform duration-300 hover:-translate-y-1 text-white bg-[#c59bc8]"
+              >
+                <div>
+                  {/* 5 Centered Gold Stars */}
+                  <div className="flex items-center justify-center space-x-1.5 mb-5 sm:mb-6">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-5 h-5 fill-amber-300 text-amber-300 drop-shadow-sm"
+                      />
+                    ))}
+                  </div>
+
+                  {/* Review Text */}
+                  <p className="text-sm sm:text-[15px] md:text-base font-normal leading-relaxed sm:leading-loose text-white text-center sm:text-left mb-6 sm:mb-8">
+                    Afrorock really exceeded my expectations! The African print
+                    dress is a showstopper—such stunning patterns and vivid
+                    colors that just light up the room. It’s well-made,
+                    flattering, and I could tell it was crafted with care. Will
+                    definitely be adding more Afrorock pieces to my wardrobe!
+                  </p>
+                </div>
+
+                {/* Bottom Avatar & User Info */}
+                <div className="flex items-center space-x-4 pt-2">
+                  <img
+                    id="testimonial-avatar-1"
+                    src={avatar1}
+                    alt="Aisha Kudirat"
+                    className="w-12 h-12 sm:w-13 sm:h-13 rounded-full object-cover border-2 border-white/80 shadow-sm flex-shrink-0"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="flex flex-col">
+                    <span className="text-base sm:text-lg font-bold text-white leading-tight">
+                      Aisha Kudirat
+                    </span>
+                    <span className="text-xs sm:text-sm text-white/90 font-medium">
+                      Lagos, Nigeria
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 2: Shade Adeleke (Dusty Pink / Mauve Terracotta) */}
+              <div
+                id="testimonial-card-2"
+                className="flex flex-col justify-between rounded-2xl p-7 sm:p-8 md:p-9 shadow-sm transition-transform duration-300 hover:-translate-y-1 text-white bg-[#ce9595]"
+              >
+                <div>
+                  {/* 5 Centered Gold Stars */}
+                  <div className="flex items-center justify-center space-x-1.5 mb-5 sm:mb-6">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-5 h-5 fill-amber-300 text-amber-300 drop-shadow-sm"
+                      />
+                    ))}
+                  </div>
+
+                  {/* Review Text */}
+                  <p className="text-sm sm:text-[15px] md:text-base font-normal leading-relaxed sm:leading-loose text-white text-center sm:text-left mb-6 sm:mb-8">
+                    I’m in love with my dress from Afrorock! The colors are
+                    vibrant, and the fabric feels so comfortable yet durable.
+                    It fits me perfectly, and I received so many compliments on
+                    the unique African print! It’s a true blend of style and
+                    culture. Afrorock, you have a loyal customer!
+                  </p>
+                </div>
+
+                {/* Bottom Avatar & User Info */}
+                <div className="flex items-center space-x-4 pt-2">
+                  <img
+                    id="testimonial-avatar-2"
+                    src={avatar2}
+                    alt="Shade Adeleke"
+                    className="w-12 h-12 sm:w-13 sm:h-13 rounded-full object-cover border-2 border-white/80 shadow-sm flex-shrink-0"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="flex flex-col">
+                    <span className="text-base sm:text-lg font-bold text-white leading-tight">
+                      Shade Adeleke
+                    </span>
+                    <span className="text-xs sm:text-sm text-white/90 font-medium">
+                      London, UK
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 3: Grace Indo (Lilac / Soft Purple) */}
+              <div
+                id="testimonial-card-3"
+                className="flex flex-col justify-between rounded-2xl p-7 sm:p-8 md:p-9 shadow-sm transition-transform duration-300 hover:-translate-y-1 text-white bg-[#c59bc8]"
+              >
+                <div>
+                  {/* 5 Centered Gold Stars */}
+                  <div className="flex items-center justify-center space-x-1.5 mb-5 sm:mb-6">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-5 h-5 fill-amber-300 text-amber-300 drop-shadow-sm"
+                      />
+                    ))}
+                  </div>
+
+                  {/* Review Text */}
+                  <p className="text-sm sm:text-[15px] md:text-base font-normal leading-relaxed sm:leading-loose text-white text-center sm:text-left mb-6 sm:mb-8">
+                    Afrorock really exceeded my expectations! The African print
+                    dress is a showstopper—such stunning patterns and vivid
+                    colors that just light up the room. It’s well-made,
+                    flattering, and I could tell it was crafted with care. Will
+                    definitely be adding more Afrorock pieces to my wardrobe!
+                  </p>
+                </div>
+
+                {/* Bottom Avatar & User Info */}
+                <div className="flex items-center space-x-4 pt-2">
+                  <img
+                    id="testimonial-avatar-3"
+                    src={avatar3}
+                    alt="Grace Indo"
+                    className="w-12 h-12 sm:w-13 sm:h-13 rounded-full object-cover border-2 border-white/80 shadow-sm flex-shrink-0"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="flex flex-col">
+                    <span className="text-base sm:text-lg font-bold text-white leading-tight">
+                      Grace Indo
+                    </span>
+                    <span className="text-xs sm:text-sm text-white/90 font-medium">
+                      Paris, France
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ================= FOOTER (PHASE 5) ================= */}
+        <footer
+          id="site-footer"
+          className="w-full bg-black text-white pt-14 sm:pt-16 md:pt-20 pb-10 sm:pb-12 px-4 sm:px-6 md:px-8 lg:px-12"
+        >
+          <div className="max-w-7xl mx-auto">
+            {/* 5-Column Navigation Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 sm:gap-10 md:gap-12 pb-12 sm:pb-16 border-b border-neutral-800">
+              {/* Column 1: Brand & Tagline */}
+              <div id="footer-col-brand" className="space-y-4 sm:col-span-2 lg:col-span-1">
+                {/* Afrorock Pastel Colored Logo */}
+                <div className="flex items-center space-x-0.5 select-none">
+                  {logoLetters.map((item, idx) => (
+                    <span
+                      key={idx}
+                      className="text-2xl sm:text-3xl font-extrabold tracking-tight font-serif italic"
+                      style={{ color: item.color }}
+                    >
+                      {item.char}
+                    </span>
+                  ))}
+                </div>
+                {/* Brand Tagline */}
+                <p className="text-sm font-semibold text-white/90 leading-relaxed max-w-xs">
+                  The best quality of African Print Dress with perfect design
+                  that suit our client.
+                </p>
+              </div>
+
+              {/* Column 2: MENU */}
+              <div id="footer-col-menu" className="space-y-3">
+                <h4 className="text-xs sm:text-sm font-bold tracking-widest text-white uppercase">
+                  Menu
+                </h4>
+                <ul className="space-y-2 text-sm text-neutral-300 font-medium">
+                  <li>
+                    <a
+                      href="#hero-section"
+                      onClick={() => setActiveNav('HOME')}
+                      className="hover:text-white transition-colors"
+                    >
+                      HOME
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#product-section"
+                      onClick={() => setActiveNav('PRODUCT')}
+                      className="hover:text-white transition-colors"
+                    >
+                      Product
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#about-us-section"
+                      onClick={() => setActiveNav('ABOUT')}
+                      className="hover:text-white transition-colors"
+                    >
+                      About
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#testimonials-section"
+                      onClick={() => setActiveNav('BLOG')}
+                      className="hover:text-white transition-colors"
+                    >
+                      Blog
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#newsletter-section"
+                      onClick={() => setActiveNav('CONTACT')}
+                      className="hover:text-white transition-colors"
+                    >
+                      Contact
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Column 3: LINKS */}
+              <div id="footer-col-links" className="space-y-3">
+                <h4 className="text-xs sm:text-sm font-bold tracking-widest text-white uppercase">
+                  Links
+                </h4>
+                <ul className="space-y-2 text-sm text-neutral-300 font-medium uppercase">
+                  <li>
+                    <a href="#faq" className="hover:text-white transition-colors">
+                      FAQ
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#privacy" className="hover:text-white transition-colors">
+                      Privacy Policy
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#terms" className="hover:text-white transition-colors">
+                      T&C
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Column 4: SOCIAL MEDIA */}
+              <div id="footer-col-social" className="space-y-3">
+                <h4 className="text-xs sm:text-sm font-bold tracking-widest text-white uppercase">
+                  Social Media
+                </h4>
+                <ul className="space-y-2 text-sm text-neutral-300 font-medium uppercase">
+                  <li>
+                    <a
+                      href="https://instagram.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-white transition-colors"
+                    >
+                      Instagram
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://tiktok.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-white transition-colors"
+                    >
+                      TikTok
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://facebook.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-white transition-colors"
+                    >
+                      Facebook
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://twitter.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-white transition-colors"
+                    >
+                      X
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Column 5: PAYMENT GATEWAY */}
+              <div id="footer-col-payment" className="space-y-3">
+                <h4 className="text-xs sm:text-sm font-bold tracking-widest text-white uppercase">
+                  Payment Gateway
+                </h4>
+                {/* Payment Icons */}
+                <div className="flex items-center space-x-3 pt-1">
+                  {/* Mastercard Icon Badge */}
+                  <div
+                    className="flex items-center justify-center bg-black border border-neutral-700 rounded px-2 py-1 h-7"
+                    title="Mastercard"
+                  >
+                    <div className="flex -space-x-1.5">
+                      <div className="w-3.5 h-3.5 rounded-full bg-[#eb001b]" />
+                      <div className="w-3.5 h-3.5 rounded-full bg-[#f79e1b] opacity-90" />
+                    </div>
+                  </div>
+
+                  {/* Visa Icon Badge */}
+                  <div
+                    className="flex items-center justify-center bg-black border border-neutral-700 rounded px-2 py-1 h-7"
+                    title="Visa"
+                  >
+                    <span className="text-xs font-black italic tracking-tighter text-[#1a1f71] bg-white px-1 rounded-sm">
+                      VISA
+                    </span>
+                  </div>
+
+                  {/* PayPal Icon Badge */}
+                  <div
+                    className="flex items-center justify-center bg-black border border-neutral-700 rounded px-2 py-1 h-7 space-x-1"
+                    title="PayPal"
+                  >
+                    <span className="text-[11px] font-bold italic text-[#003087]">
+                      Pay<span className="text-[#0079c1]">Pal</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Copyright centered */}
+            <div className="pt-8 text-center">
+              <p
+                id="footer-copyright"
+                className="text-xs sm:text-sm text-neutral-400 font-medium"
+              >
+                Afrorock (c) 2026
+              </p>
+            </div>
+          </div>
+        </footer>
       </main>
     </div>
   );
